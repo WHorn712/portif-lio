@@ -1,0 +1,21 @@
+{
+  "name": "portifolio",
+  "version": "1.0.0",
+  "description": "Descrição do seu projeto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Error: no test specified && exit 1",
+    "start": "http-server -p $PORT"
+  },
+  "repository": {
+    "type": "git",
+    "url": "URL do seu repositório (se aplicável)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
