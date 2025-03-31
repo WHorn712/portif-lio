@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Programador</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #242424;
+            overflow-x: hidden;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Estilos para a seção da animação de código com imagem de fundo */
+        .animation-section {
+            height: 1000px;
+            background-color: #242424;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .code-container {
+            background: #363636;
+            color: #377033;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow: hidden;
+            width: 80%;
+            max-width: 600px;
+            max-height: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff00;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Estilos de Texto e Título */
+        .animation-title {
+            font-size: 2.5em;
+            color: #4EC4FF;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .dynamic-text {
+            color: #4A90E2;
+        }
+
+        .name-container {
+            margin-top: 20px;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .my-name, .my-surname {
+            font-size: 2em;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilos para os botões */
+        .animation-buttons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .animation-button {
+            background: none;
+            border: 2px solid #F4F4F4;
+            color: #F4F4F4;
+            font-size: 1.2em;
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .animation-button:hover {
+            color: #fff;
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+
+        /* Seções Padrão */
+        .secao-padrao {
+            height: 600px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+            z-index: 1;
+        }
+
+        /* Estilos específicos para cada seção com animações diferentes */
+        #sobre.active {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        #projectLegendas.active {
+            animation: slideInRight 1s ease forwards;
+        }
+
+        #projectSnakeGame.active {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        #projectMarket.active {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        #contato.active {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .secao-padrao.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-container {
+            width: 50%;
+            text-align: left;
+        }
+
+        .profile-image, .profile-video {
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilos específicos para as seções */
+        #sobre h2, #projectLegendas h2, #projectSnakeGame h2, #projectMarket h2 {
+            color: #33B01A;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        #sobre p, #projectLegendas p, #projectSnakeGame p, #projectMarket p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Contato */
+        #contato {
+            height: 250px;
+            background: #363636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #contato h2 {
+            color: #fff;
+            font-size: 2em;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-button {
+            display: inline-block;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: scale(1.2);
+        }
+
+        .social-button img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        #contato p {
+            color: #fff;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: #fff;
+        }
+
+        /* Estilos para vídeos */
+        #video-legenda, #video-snakegame, #video-Market {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Fundo fixo para evitar o branco */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #242424;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="animation-section">
+        <div class="animation-buttons">
+            <a href="#sobre" class="animation-button">Sobre</a>
+            <a href="#projectLegendas" class="animation-button">Projetos</a>
+            <a href="#contato" class="animation-button">Contato</a>
+        </div>
+        <div class="code-container" id="codeContainer"></div>
+        <h1 class="animation-title">
+            <span class="dynamic-text" id="dynamicText">Software</span> & Web Innovator. IA is the future.
+        </h1>
+        <div class="name-container">
+            <h2 class="my-name">Wellington</h2>
+            <h2 class="my-surname">Horn</h2>
+        </div>
+    </section>
+
+    <section id="sobre" class="secao-padrao">
+        <img src="aa.jpg" alt="Sua Foto de Perfil" class="profile-image">
+        <div class="text-container">
+            <h2>About Me</h2>
+            <p>Specializing in innovative digital solutions, I turn data into insights and ideas into reality. Using Python, AI, and data science, I create intelligent and tailored websites, apps, and systems. Agility and precision to drive your projects to success.</p>
+            <p>At 25, with the energy of a sports enthusiast and the strategy of a poker player, I bring a unique approach to software development. My passion for Python, AI, and data science merges with my quest for freedom and innovation. Creating digital solutions that drive the success of your projects, as I prepare to explore the world without borders.</p>
+        </div>
+    </section>
+
+    <section id="projectLegendas" class="secao-padrao">
+        <video src="video1.mp4" id="video-legenda" class="profile-video" autoplay loop muted></video>
+        <div class="text-container">
+            <h2>Site de Legendas</h2>
+            <p>Specializing in innovative digital solutions, I turn data into insights and ideas into reality. Using Python, AI, and data science, I create intelligent and tailored websites, apps, and systems. Agility and precision to drive your projects to success.</p>
+            <p>At 25, with the energy of a sports enthusiast and the strategy of a poker player, I bring a unique approach to software development. My passion for Python, AI, and data science merges with my quest for freedom and innovation. Creating digital solutions that drive the success of your projects, as I prepare to explore the world without borders.</p>
+        </div>
+    </section>
+
+    <section id="projectSnakeGame" class="secao-padrao">
+        <video src="video1.mp4" id="video-snakegame" class="profile-video" autoplay loop muted></video>
+        <div class="text-container">
+            <h2>Snake Game</h2>
+            <p>Specializing in innovative digital solutions, I turn data into insights and ideas into reality. Using Python, AI, and data science, I create intelligent and tailored websites, apps, and systems. Agility and precision to drive your projects to success.</p>
+            <p>At 25, with the energy of a sports enthusiast and the strategy of a poker player, I bring a unique approach to software development. My passion for Python, AI, and data science merges with my quest for freedom and innovation. Creating digital solutions that drive the success of your projects, as I prepare to explore the world without borders.</p>
+        </div>
+    </section>
+
+    <section id="projectMarket" class="secao-padrao">
+        <video src="video1.mp4" id="video-Market" class="profile-video" autoplay loop muted></video>
+        <div class="text-container">
+            <h2>App Market</h2>
+            <p>Specializing in innovative digital solutions, I turn data into insights and ideas into reality. Using Python, AI, and data science, I create intelligent and tailored websites, apps, and systems. Agility and precision to drive your projects to success.</p>
+            <p>At 25, with the energy of a sports enthusiast and the strategy of a poker player, I bring a unique approach to software development. My passion for Python, AI, and data science merges with my quest for freedom and innovation. Creating digital solutions that drive the success of your projects, as I prepare to explore the world without borders.</p>
+        </div>
+    </section>
+
+    <section id="contato" class="secao-padrao">
+        <h2>My Contacts:</h2>
+        <div class="social-buttons">
+            <a href='https://www.linkedin.com/in/wellington-horn-9185101ba/' class="social-button">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/wellington.a_h/" class="social-button">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://github.com/WHorn712" class="social-button">
+                <img src="github.png" alt="GitHub">
+            </a>
+            <a href="https://www.tiktok.com/@wellingtonprogramer" class="social-button">
+                <img src="tiktok.png" alt="TikTok">
+            </a>
+        </div>
+        <p>wellingtondeveloper31@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Programmer Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openInNewTab(url) {
+            window.open(url, '_blank');
+        }
+
+        const codeLines4 = [
+            "function aboutMe() {",
+            "    console.log('Hello my friends. Some things about me')",
+            "}",
+            "",
+            "aboutMe();",
+            "",
+            "// Welcome to my portfolio!",
+            "// Here are some of my projects.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ];
+
+        const codeLines2 = [
+            "class Linear_QNet(nn.Module):",
+            " Simple neural network model using PyTorch.",
+            " def __init__(self, input_size, hidden_size, output_size):",
+            " super().__init__()",
+            " self.linear1 = nn.Linear(input_size, hidden_size)",
+            " self.linear2 = nn.Linear(hidden_size, output_size)",
+            "",
+            " def forward(self, x):",
+            " It uses the Relu activation function along with linear layers to define the sequence of",
+            " operations in the model.",
+            " x = F.relu(self.linear1(x))",
+            " x = self.linear2(x)",
+            " return x",
+            "",
+            " def save(self, file_name='model.pth'):",
+            " Responsible for model persistence by saving the parameters to the file model.pth.",
+            " model_folder_path = '../model",
+            " if not os.path.exists(model_folder_path):",
+            " os.makedirs(model_folder_path)",
+            " file_name = os.path.join(model_folder_path, file_name)",
+            " torch.save(self.state_dict(), file_name)",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ];
+
+        const codeLines3 = [
+            "def print_audio_info_and_transcribe(video_path):",
+            " Main function.",
+            " video_path = os.path.abspath(video_path)",
+            "",
+            " if not os.path.exists(video_path):",
+            " print(f O arquivo {video_path} não foi encontrado.)",
+            " return []",
+            " processed_audio_path = None",
+            " try:",
+            " print( Iniciando processamento do áudio... )",
+            " # Prepara o áudio",
+            " processed_audio_path = Audio.prepare_audio_for_transcription(video_path)",
+            "",
+            "",
+            " if processed_audio_path is None:",
+            " print( Falha na preparação do áudio. )",
+            " return []",
+            "",
+            " audio = AudioSegment.from_file(video_path, format= mp4 )",
+            "",
+            " # Imprime informações do áudio original",
+            " print(f \nInformações do áudio original: )",
+            " print(f Duração do áudio: {len(audio) / 1000:.2f} segundos )",
+            " print(f Canais: {audio.channels} )",
+            " print(f Taxa de amostragem: {audio.frame-rate} Hz )",
+            " print(f Bits por amostra: {audio.sample_width * 8} )",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ];
+
+        lista_codeLines = [codeLines4, codeLines2, codeLines3]
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        let typingTimeout;
+        let firstTime = true;
+
+        const codeContainer = document.getElementById('codeContainer');
+
+        randomIndex = Math.floor(Math.random() * lista_codeLines.length);
+        codeLines = lista_codeLines[randomIndex]
+
+        function typeLine() {
+            if (lineIndex < codeLines.length) {
+                const line = codeLines[lineIndex];
+                codeContainer.textContent += line.charAt(charIndex);
+                charIndex++;
+
+                if (charIndex === line.length + 1) {
+                    lineIndex++;
+                    charIndex = 0;
+                    codeContainer.textContent += "\n";
+                }
+                typingTimeout = setTimeout(typeLine, 20);
+            } else {
+                if (firstTime) {
+                    codeContainer.style.height = codeContainer.offsetHeight + 'px';
+                    firstTime = false;
+                }
+                setTimeout(resetAnimation, 50);
+            }
+        }
+
+        function resetAnimation() {
+            lineIndex = 0;
+            charIndex = 0;
+            codeContainer.textContent = '';
+            randomIndex = Math.floor(Math.random() * lista_codeLines.length);
+            codeLines = lista_codeLines[randomIndex]
+            typeLine();
+        }
+
+        typeLine();
+
+        const dynamicText = document.getElementById('dynamicText');
+        const words = ["Software", "App"];
+        let wordIndex = 0;
+        let charIndex2 = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+
+            if (isDeleting) {
+                dynamicText.textContent = currentWord.substring(0, charIndex2 - 1);
+                charIndex2--;
+                if (charIndex2 === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+                setTimeout(typeEffect, deletingSpeed);
+            } else {
+                dynamicText.textContent = currentWord.substring(0, charIndex2 + 1);
+                charIndex2++;
+                if (charIndex2 === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1500);
+                } else {
+                    setTimeout(typeEffect, typingSpeed);
+                }
+            }
+        }
+
+        typeEffect();
+
+        // Função para verificar se o elemento está visível na tela
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Função para adicionar a classe 'active' quando o elemento estiver visível
+        function handleScrollAnimation() {
+            const sections = document.querySelectorAll('.secao-padrao');
+            sections.forEach(section => {
+                if (isElementInViewport(section)) {
+                    // Remove a classe 'active' antes de adicioná-la novamente
+                    section.classList.remove('active');
+
+                    // Força um reflow para reiniciar a animação
+                    void section.offsetWidth;
+
+                    // Adiciona a classe 'active'
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        // Adiciona o listener de scroll para ativar as animações
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Executa a função uma vez para verificar se alguma seção já está visível no carregamento da página
+        handleScrollAnimation();
+    </script>
+
+</body>
+</html>
