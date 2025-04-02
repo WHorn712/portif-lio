@@ -8,7 +8,7 @@
     <style>
         /* Estilos para a seção da animação de código com imagem de fundo */
         .animation-section {
-            height: 1000px;
+            min-height: 100vh;
             background-color: #242424;
             margin: 0px auto;
             overflow: hidden;
@@ -22,14 +22,14 @@
             white-space: pre;
             overflow: hidden;
             width: 80%;
-            max-width: 600px;
-            max-height: 1000px;
+            max-width: 40%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin: 0px auto;
+            margin: 10px auto;
             margin-left: auto;
-            transform: translateX(67%) translateY(14px);
             display: flex;
             transition: height 0.3s ease; /* Adiciona uma transição suave para a altura */
+            position: relative;
+            left: 26%; /* Move o elemento 67% da largura do pai para a direita */
         }
         .cursor {
             display: inline-block;
@@ -247,6 +247,8 @@
     top: 130px; /* Ajusta a posição vertical */
     left: 30%; /* Centraliza horizontalmente */
     transform: translateX(-50%); /* Ajusta o alinhamento horizontal */
+
+
     font-size: 2em;
     color: #4EC4FF;
     white-space: nowrap;
@@ -617,6 +619,61 @@
 .text-container {
     flex: 1; /* Permite que o texto preencha o espaço restante */
     margin-left: 20px; /* Adiciona um espaço entre a imagem e o texto */
+}
+        /* Media query para telas menores que 768px */
+@media (max-width: 768px) {
+    .secao-padrao {
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 20px;
+        margin-bottom: 20px;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .secao-padrao h2 {
+        font-size: 1.5em; /* Reduz o tamanho da fonte do título */
+        margin-bottom: 10px;
+    }
+
+    .secao-padrao p {
+        width: 100%; /* Ocupa toda a largura disponível */
+        text-align: left; /* Alinha o texto à esquerda */
+        margin: 10px auto;
+    }
+
+    /* Ajustes para a seção Sobre */
+    #sobre .profile-image {
+        width: 50%; /* Ajusta a largura da imagem de perfil */
+        max-width: 200px;
+        left: auto; /* Remove o posicionamento absoluto */
+    }
+
+    /* Ajustes para as seções de projetos */
+    #projectLegendas,
+    #projectSnakeGame,
+    #projectMarket {
+        margin-left: 0; /* Remove a margem esquerda */
+        flex-direction: column; /* Alinha os itens verticalmente */
+    }
+
+    #projectLegendas .profile-video,
+    #projectSnakeGame .profile-video {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        width: 100%; /* Ocupa toda a largura disponível */
+        margin-bottom: 20px;
+    }
+
+    #projectSnakeGame h2 {
+        margin-left: 0; /* Remove a margem esquerda */
+    }
+
+    #projectMarket #image-market {
+        margin-right: 0; /* Remove a margem direita */
+        width: 80%; /* Ajusta a largura da imagem */
+        max-width: 300px;
+    }
 }
     </style>
 </head>
