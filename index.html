@@ -620,7 +620,216 @@
     flex: 1; /* Permite que o texto preencha o espaço restante */
     margin-left: 20px; /* Adiciona um espaço entre a imagem e o texto */
 }
-        /* Media query para telas menores que 768px */
+        @media (max-width: 768px) {
+    #sobre,
+    #projectLegendas,
+    #projectSnakeGame,
+    #projectMarket {
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        align-items: center; /* Centraliza os elementos horizontalmente */
+        text-align: center; /* Centraliza o texto */
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 20px; /* Adiciona um preenchimento para melhor aparência */
+        margin-left: 0; /* Remove a margem esquerda */
+        background: #363636; /* Garante que o fundo seja visível */
+    }
+
+    #sobre p,
+    #projectLegendas p,
+    #projectSnakeGame p,
+    #projectMarket p {
+        width: 90%; /* O texto ocupa a largura da tela com margem */
+        margin: 10px auto; /* Centraliza e adiciona margem vertical */
+        text-align: justify; /* Justifica o texto para melhor leitura */
+    }
+
+    /* Ajustes para as imagens e vídeos */
+    #image-sobre,
+    .profile-video,
+    #video-snakegame,
+    #image-market {
+        width: 100%; /* Imagem/vídeo ocupa a largura total */
+        max-width: 100%; /* Garante que não exceda a largura da tela */
+        height: auto; /* Mantém a proporção */
+        position: static; /* Remove o posicionamento absoluto */
+        left: auto; /* Reseta o posicionamento horizontal */
+        transform: none; /* Remove qualquer transformação */
+        margin-bottom: 20px; /* Adiciona espaço abaixo da imagem/vídeo */
+    }
+
+    /* Estilos específicos para o vídeo do Snake Game */
+    #video-snakegame {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ajustes específicos para a imagem do Market */
+    #image-market {
+        margin-right: auto; /* Centraliza a imagem */
+    }
+
+    /* Remove as margens negativas e posicionamentos específicos */
+    #projectLegendas {
+        margin-left: 0;
+    }
+
+    #projectSnakeGame {
+        margin-left: 0;
+    }
+
+    #projectMarket {
+        margin-left: 0;
+    }
+
+    /* Ajusta a posição do texto nas seções */
+    #projectSnakeGame p {
+        margin-left: auto;
+    }
+
+    /* Remove os estilos de hover para melhor usabilidade em dispositivos móveis */
+    #sobre h2:hover,
+    #projectLegendas h2:hover,
+    #projectSnakeGame h2:hover,
+    #projectMarket h2:hover {
+        color: #FFD700;
+        font-family: 'Trebuchet MS', sans-serif;
+        cursor: pointer;
+    }
+
+    #sobre p:hover,
+    #projectLegendas p:hover,
+    #projectSnakeGame p:hover,
+    #projectMarket p:hover {
+        color: #ADD8E6;
+        font-family: 'Trebuchet MS', serif;
+        font-size: 1.23em;
+        cursor: text;
+    }
+    #projectSnakeGame {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 20px;
+        margin-left: 0;
+        background: #363636;
+    }
+
+    #projectSnakeGame h2 {
+        width: 90%; /* Garante que o título ocupe a largura da tela */
+        margin: 0 auto 10px; /* Centraliza o título e adiciona margem inferior */
+        text-align: center; /* Centraliza o texto do título */
+        color: #33B01A; /* Mantém a cor do título */
+        font-size: 1.5em; /* Reduz o tamanho da fonte para melhor ajuste */
+        position: static; /* Remove posicionamento absoluto */
+        margin-left: auto; /* Remove margem esquerda */
+    }
+
+    #projectSnakeGame p {
+        width: 90%; /* O texto ocupa a largura da tela com margem */
+        margin: 10px auto; /* Centraliza e adiciona margem vertical */
+        text-align: justify; /* Justifica o texto para melhor leitura */
+        margin-left: auto; /* Remove margem esquerda */
+        margin-right: auto; /* Remove margem direita */
+    }
+
+    #video-snakegame {
+        width: 100%; /* Vídeo ocupa a largura total */
+        max-width: 100%; /* Garante que não exceda a largura da tela */
+        height: auto; /* Mantém a proporção */
+        position: static; /* Remove o posicionamento absoluto */
+        left: auto; /* Reseta o posicionamento horizontal */
+        transform: none; /* Remove qualquer transformação */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do vídeo */
+        margin-left: auto; /* Centraliza o vídeo */
+        margin-right: auto; /* Centraliza o vídeo */
+    }
+
+    /* Remove os estilos de hover para melhor usabilidade em dispositivos móveis */
+    #projectSnakeGame h2:hover {
+        color: #FFD700;
+        font-family: 'Trebuchet MS', sans-serif;
+        cursor: pointer;
+    }
+
+    #projectSnakeGame p:hover {
+        color: #ADD8E6;
+        font-family: 'Trebuchet MS', serif;
+        font-size: 1.23em;
+        cursor: text;
+    }
+    .animation-section {
+        min-height: auto; /* Ajusta a altura automaticamente */
+        padding: 20px; /* Adiciona um preenchimento para melhor aparência */
+    }
+
+    .animation-title {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        text-align: center; /* Centraliza o texto */
+        font-size: 1.5em; /* Reduz o tamanho da fonte */
+        margin-top: 20px; /* Adiciona margem superior */
+        width: 90%; /* Ocupa a largura da tela */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .name-container {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        text-align: center; /* Centraliza o texto */
+        margin-top: 10px; /* Adiciona margem superior */
+    }
+
+    .my-name {
+        font-size: 2em; /* Reduz o tamanho da fonte */
+    }
+
+    .my-surname {
+        font-size: 1.2em; /* Reduz o tamanho da fonte */
+    }
+
+    .code-container {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        width: 90%; /* Ocupa a largura da tela */
+        max-width: 90%; /* Garante que não exceda a largura */
+        margin: 20px auto; /* Centraliza horizontalmente e adiciona margem vertical */
+        left: auto; /* Remove o posicionamento */
+    }
+
+    .animation-buttons {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        display: flex;
+        flex-direction: column; /* Coloca os botões em coluna */
+        align-items: center; /* Centraliza os botões */
+        margin-top: 20px; /* Adiciona margem superior */
+    }
+
+    .animation-button {
+        font-size: 1.5em; /* Reduz o tamanho da fonte */
+        margin: 10px 0; /* Reduz o espaçamento */
+    }
+
+    /* Estilos adicionais para melhorar a visibilidade (opcional) */
+    .code-container {
+        opacity: 0.95; /* Aumenta a opacidade para melhor visibilidade */
+        background: #444; /* Tom mais escuro para destacar */
+    }
+    .animation-title {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        text-align: center; /* Centraliza o texto */
+        font-size: 1.5em; /* Reduz o tamanho da fonte */
+        margin-top: 20px; /* Adiciona margem superior */
+        width: 90%; /* Ocupa a largura da tela */
+        margin-left: auto;
+        margin-right: auto;
+        white-space: normal; /* Permite que o texto quebre a linha */
+        word-break: break-word; /* Quebra palavras longas se necessário */
+    }
+}
 
     </style>
 </head>
