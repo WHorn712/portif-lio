@@ -29,7 +29,7 @@
             display: flex;
             transition: height 0.3s ease; /* Adiciona uma transição suave para a altura */
             position: relative;
-            left: 26%; /* Move o elemento 67% da largura do pai para a direita */
+            left: 28%; /* Move o elemento 67% da largura do pai para a direita */
         }
         .cursor {
             display: inline-block;
@@ -429,6 +429,7 @@
     position: relative;
     animation: none;
     background: #363636;
+    position: relative;
 }
 
 #projectLegendas h2 {
@@ -437,6 +438,8 @@
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease, font-family 0.3s ease;
+    position: relative; /* Adiciona posicionamento relativo */
+    top: -100px;        /* Ajuste este valor para mover o título para cima */
 }
 
 #projectLegendas h2:hover {
@@ -486,6 +489,11 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease, font-family 0.3s ease;
     margin-left: 650px; /* Move o título para a direita */
+    position: relative;
+    top: -330px;   /* Ajuste para mover verticalmente */
+    left: 330px;  /* Ajuste para mover horizontalmente */
+    width: auto;         /* Garante que a largura seja suficiente */
+    white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
 }
 
 #projectSnakeGame h2:hover {
@@ -495,12 +503,13 @@
 }
 
 #projectSnakeGame p {
-    width: 24%; /* Diminui a largura do texto */
+    width: 46%; /* Diminui a largura do texto */
     text-align: left;
     overflow-y: auto;
     flex-grow: 1;
-    margin: 0 0 0 900px; /* Ajusta a margem para a direita */
+    margin: 0 0 0 80px; /* Ajusta a margem para a direita */
     transition: color 0.3s ease, font-family 0.3s ease;
+    position: relative;
 }
 
 #projectSnakeGame p:hover {
@@ -573,7 +582,7 @@
 
 #image-market {
     margin-right: 300px;
-    width: 300px; /* Ajuste a largura conforme necessário */
+    width: 400px; /* Ajuste a largura conforme necessário */
     height: auto; /* Mantém a proporção do vídeo */
 }
 
@@ -620,6 +629,68 @@
     flex: 1; /* Permite que o texto preencha o espaço restante */
     margin-left: 20px; /* Adiciona um espaço entre a imagem e o texto */
 }
+
+        #projectLegendas {
+    position: relative; /* Importante: Define o contêiner como relativo */
+    flex-direction: row-reverse;
+    margin-left: -750px;
+    animation: none;
+    background: #363636;
+    height: 800px; /* Defina uma altura para a seção */
+}
+
+#projectLegendas .profile-video {
+    position: absolute; /* Permite posicionamento absoluto */
+    top: 50%; /* Ajuste vertical */
+    left: 80%; /* Ajuste horizontal */
+    transform: translate(-50%, -50%); /* Centraliza o vídeo */
+    width: 600px; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção do vídeo */
+    z-index: 1; /* Garante que o vídeo esteja na frente */
+}
+
+.project-button {
+    position: absolute; /* Permite posicionamento absoluto */
+    top: 75%; /* Ajuste vertical */
+    left: 80%; /* Ajuste horizontal */
+    transform: translateX(-50%); /* Centraliza o botão */
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Adiciona uma transição suave */
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 5; /* Garante que o botão esteja na frente */
+}
+
+.project-button:hover {
+    background-color: #388E3C; /* Cor mais escura no hover */
+    transform: translateX(-50%) scale(1.05); /* Efeito de "levantar" */
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.3); /* Sombra mais forte no hover */
+}
+
+.project-button:active {
+    background-color: #1B5E20; /* Cor ainda mais escura ao clicar */
+    transform: translateX(-50%) scale(0.95); /* Efeito de "afundar" */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra menor ao clicar */
+}
+
+
+
+#projectLegendas .text-container {
+    position: absolute; /* Permite posicionamento absoluto */
+    top: 20%; /* Ajuste vertical */
+    left: 10%; /* Ajuste horizontal */
+    width: 80%; /* Ajuste a largura do texto */
+    z-index: 3; /* Garante que o texto esteja na frente */
+}
+
         @media (max-width: 768px) {
     #sobre,
     #projectLegendas,
@@ -641,6 +712,10 @@
         width: 90%; /* O texto ocupa a largura da tela com margem */
         margin: 10px auto; /* Centraliza e adiciona margem vertical */
         text-align: justify; /* Justifica o texto para melhor leitura */
+        word-spacing: normal; /* Reseta o espaçamento entre palavras */
+        hyphens: auto; /* Permite hifenização automática */
+        -webkit-hyphens: auto; /* Para navegadores Safari */
+        -moz-hyphens: auto; /* Para navegadores Firefox */
     }
 
     /* Ajustes para as imagens e vídeos */
@@ -829,8 +904,54 @@
         white-space: normal; /* Permite que o texto quebre a linha */
         word-break: break-word; /* Quebra palavras longas se necessário */
     }
-}
+    #projectLegendas {
+        flex-direction: column; /* Organiza os elementos em coluna */
+        align-items: center; /* Centraliza horizontalmente */
+        margin-left: 0; /* Remove a margem esquerda */
+        text-align: center; /* Centraliza o texto */
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 20px; /* Adiciona um preenchimento */
+        background: #363636; /* Garante que o fundo seja visível */
+    }
 
+    #projectLegendas h2 {
+        width: 90%; /* Garante que o título ocupe a largura da tela */
+        margin: 0 auto 10px; /* Centraliza o título e adiciona margem inferior */
+        text-align: center; /* Centraliza o texto do título */
+        color: #33B01A; /* Mantém a cor do título */
+        font-size: 1.5em; /* Reduz o tamanho da fonte para melhor ajuste */
+        position: static; /* Remove posicionamento absoluto */
+    }
+
+    #projectLegendas .profile-video {
+        width: 100%; /* Vídeo ocupa a largura total */
+        max-width: 80%; /* Garante que não exceda a largura da tela */
+        height: auto; /* Mantém a proporção */
+        position: static; /* Remove o posicionamento absoluto */
+        left: auto; /* Reseta o posicionamento horizontal */
+        transform: none; /* Remove qualquer transformação */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do vídeo */
+    }
+
+    #projectLegendas .project-button {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none; /* Remove a transformação */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do botão */
+    }
+
+    #projectLegendas .text-container {
+        position: static; /* Remove o posicionamento absoluto */
+        width: 90%; /* O texto ocupa a largura da tela */
+        text-align: justify; /* Justifica o texto para melhor leitura */
+        margin: 0 auto; /* Centraliza o texto */
+    }
+
+    #projectLegendas p {
+        width: 100%; /* O texto ocupa a largura da tela */
+        margin: 10px auto; /* Adiciona margem vertical */
+        font-size: 1em; /* Ajusta o tamanho da fonte para melhor leitura */
+    }
+}
     </style>
 </head>
 <body>
@@ -858,17 +979,25 @@
     </div>
 </section>
 <section id="projectLegendas" class="secao-padrao">
-    <video src="video1.mp4" id="video-legenda" class="profile-video" autoplay loop muted ></video>
     <div class="text-container">
         <h2>Subtitles Web Site</h2>
+    </div>
+    <video src="video1.mp4" id="video-legenda" class="profile-video" autoplay loop muted ></video>
+    <!-- Botão Adicionado Aqui -->
+    <button onclick="window.open('https://legendasoficial.com/', '_blank')" class="project-button">
+        ACESS
+    </button>
+    <div class="text-container">
         <p>Legendas Oficial is a website that automatically transcribes spoken video and inserts subtitles using the best YouTube font. Subscriptions are available for a day ($3.90) or a month ($9.90).</p>
         <p>The site leverages audio enhancement techniques, Whisper for transcription, NumPy for data processing, MoviePy for video editing, and Flask for web application deployment. It efficiently processes videos in approximately 4 minutes and provides an automatically downloaded, subtitled video for the user.</p>
     </div>
 </section>
 <section id="projectSnakeGame" class="secao-padrao">
-    <video src="video2.mp4" id="video-snakegame" class="profile-video" autoplay loop muted></video>
     <div class="text-container">
         <h2>IA Snake Game</h2>
+    </div>
+    <video src="video2.mp4" id="video-snakegame" class="profile-video" autoplay loop muted></video>
+    <div class="text-container">
         <p>Game based on AI decision-making. I used PyTorch for the AI to learn with each round. The game state is passed as calculation data for the model to calculate the functions.</p>
         <p>I used an artificial neural network with 15 neurons in the input layer, 512 neurons in the hidden layer, and 3 neurons in the output layer. I also used ReLU activation function, Adam optimizer, and MSELoss loss function.</p>
     </div>
