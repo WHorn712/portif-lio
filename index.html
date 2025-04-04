@@ -394,10 +394,6 @@
     left: 230px; /* Ajuste conforme necessário */
 }
 
-#image-sobre {
-
-}
-
 .profile-image:hover {
     transform: scale(1.1);
 }
@@ -692,6 +688,15 @@
 }
 
         @media (max-width: 768px) {
+
+
+        .profile-image {
+    width: 50%;
+    max-width: 200px;
+    position: relative; /* Adicionado */
+    left: 15px;
+}
+
     #sobre,
     #projectLegendas,
     #projectSnakeGame,
@@ -704,6 +709,9 @@
         margin-left: 0; /* Remove a margem esquerda */
         background: #363636; /* Garante que o fundo seja visível */
     }
+    .dynamic-text {
+    font-size: 0.83em;
+}
 
     #sobre p,
     #projectLegendas p,
@@ -719,7 +727,6 @@
     }
 
     /* Ajustes para as imagens e vídeos */
-    #image-sobre,
     .profile-video,
     #video-snakegame,
     #image-market {
@@ -775,10 +782,7 @@
     #projectLegendas p:hover,
     #projectSnakeGame p:hover,
     #projectMarket p:hover {
-        color: #ADD8E6;
-        font-family: 'Trebuchet MS', serif;
-        font-size: 1.23em;
-        cursor: text;
+
     }
     #projectSnakeGame {
         flex-direction: column;
@@ -963,7 +967,7 @@
     </div>
     <div class="code-container" id="codeContainer"></div>
     <h1 class="animation-title">
-        <span class="dynamic-text" id="dynamicText">Software</span> & Web Innovator. IA is the future.
+        <span class="dynamic-text" id="dynamicText">Software</span> & Web Innovator.
     </h1>
     <div class="name-container">
         <h2 class="my-name">Wellington</h2>
@@ -971,7 +975,7 @@
     </div>
 </section>
 <section id="sobre" class="secao-padrao">
-    <img src="aa.jpg" alt="Sua Foto de Perfil" id="image-sobre" class="profile-image">
+    <img src="aa.jpeg" alt="Sua Foto de Perfil" id="image-sobre" class="profile-image">
     <div class="text-container">
         <h2>About Me</h2>
         <p>Specializing in innovative digital solutions, I turn data into insights and ideas into reality. Using Python, AI, and data science, I create intelligent and tailored websites, apps, and systems. Agility and precision to drive your projects to success.</p>
